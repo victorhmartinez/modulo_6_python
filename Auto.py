@@ -30,11 +30,30 @@ class Auto:
             print("¡Ya déjame descansar por favor!")
 
 
-mi_auto = Auto("Toyota", "Corolla", 2020)
-mi_auto.mostrar_informacion()
-mi_auto.actualizar_kilometraje(15000)
-mi_auto.realizar_viaje(5000)
-mi_auto.estado_auto()
-mi_auto.actualizar_kilometraje(12000) 
-mi_auto.realizar_viaje(-100)  
-mi_auto.estado_auto()
+    @classmethod
+    def crear_auto_nuevo(cls, modelo):
+        marca= "Toyota"
+        anio_actual =2024
+        return cls(marca, modelo, anio_actual)
+    @staticmethod
+    def comparar_kilometraje(auto1, auto2):
+        if auto1.kilometraje == auto2.kilometraje:
+            print(f"Ambos autos tienen el mismo kilometraje: {auto1.kilometraje} km")
+        else:
+            print(f"Los autos tienen diferente kilometraje: {auto1.kilometraje} km y {auto2.kilometraje} km")
+
+    
+    @staticmethod
+    def validar_anio_fabricacion(anio):
+        anio_actual = 2024
+        if 1886 <= anio <= anio_actual: 
+            print(f"El año {anio} esta dentro de las fechas de creacion del primer auto.")
+        else:
+            print(f"El año {anio} no es válido para fechas de creacion del primer auto.")
+
+    @classmethod
+    def crear_auto_antiguo(cls, modelo, anio):
+        marca="Convertible"
+        return cls(marca, modelo, anio)
+
+
